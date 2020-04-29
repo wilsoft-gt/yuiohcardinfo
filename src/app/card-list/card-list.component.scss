@@ -1,0 +1,38 @@
+.card-list {
+    width: 100%;
+    margin-top: 2em;
+    &__info {
+        display: inline-flex;
+        flex-direction: column;
+        &--set-name {
+            margin: 0;
+        }
+        &--cards-amount {
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+    &__col {
+        width: 100%;
+        display: inline-flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        &--image {
+            margin: 1em 1em  0 0;
+            width: 125px;
+            height: auto;
+        }
+    }
+}
+
+.cards-amount {
+    &__image {
+        width: 13px;
+    }
+    &__text {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,10 @@
+<section class="card-info">
+    <div class="card-info__images">
+        <img #image src="{{ card?.card_images[0]?.image_url || backSide }}" alt="main">
+        <div *ngIf="card?.card_images.length > 1">
+            <span *ngFor="let link of card?.card_images" (click)="setCardImage(image, link?.image_url)">
+                <mat-icon>lens</mat-icon>
+            </span>                        
+        </div>
+    </div>    
+</section>
