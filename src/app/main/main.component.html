@@ -1,3 +1,31 @@
-<app-card-info [card]="selectedCard"></app-card-info>
-<hr>
-<app-card-list [cardList]="selectedSet" [setInfo]="selectedSetInfo" (setCardInfoEvent)="setCardInfo($event)"></app-card-list>
+<section class="main">
+    <div class="main__nav">
+        <app-navigation
+            [allCards]="allCards"
+            (filterEvent)="requestFiltered($event)"
+            (openSetsEvent)="openDialog()"
+        ></app-navigation>
+    </div>
+    <div class="main__container">
+        <div class="main__container--left mat-elevation-z5">
+            <app-card-info
+                class="mat-elevation-z3"
+                class="main__left--item"
+                [card]="selectedCard"
+                (filterEvent)="requestFiltered($event)"
+            ></app-card-info>
+        </div>
+        <div class="main__container--right mat-elevation-z5">
+            <app-card-list
+                class="main__right--item"
+                [cardList]="selectedSet"
+                [setInfo]="selectedSetInfo"
+                [viewing]="viewing"
+                (setCardInfoEvent)="setCardInfo($event)"
+            ></app-card-list>
+        </div>
+    </div>
+    <div class="mat-elevation-z8">
+        <app-footer></app-footer>
+    </div>
+</section>

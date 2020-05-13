@@ -1,14 +1,19 @@
 <section class="card-list">
+  <h2 class="card-list__title">{{viewing}} ({{cardList?.length}})</h2>
   <div class="card-list__col">
-    <div [@loadedImages]='cardList?.length'>
-      <img 
-        *ngFor="let card of cardList; let index = index"
-        class="card-list__col--image"
+    <div
+      class="card-list__img-wrapper card-list__col mat-elevation-z2"
+      matRipple
+      *ngFor="let card of cardList; let index = index"
+    >
+      <img
+        loading="lazy"
+        class="card-list__img-wrapper--image"
         title="{{ card.name }}"
         src="{{ card.card_images[0].image_url_small || backSide }}"
         alt="{{ card.name }}"
         (click)="setCardInfo(card)"
       >
     </div>
-    </div>
+  </div>
 </section>

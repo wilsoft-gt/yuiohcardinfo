@@ -30,6 +30,7 @@ export interface Card {
     level?: number;
     race: string;
     archetype?: string;
+    scale?: number;
     linkval?: number;
     attribute: string;
     card_sets: Array<CardSets>;
@@ -42,4 +43,10 @@ export interface SetInfo {
     set_code: string;
     num_of_cards: number;
     tcg_date: string;
+}
+
+export interface Filter {
+    filter: string;
+    value: string;
+    spellOrTrap?: string
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs';
+import { Filter } from '../../models/yugioh.models'
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +26,14 @@ export class RequestDataService {
   async getSingleSet(setName): Promise<any> {
     const response = await this.httpClient.get(`${this.allCards}${this.cardsInSet}${setName}`).toPromise()
     return response
+  }
+  
+  async getFiltered(filtered: Filter): Promise<any> {
+    if (filtered.filter && filtered.spellOrTrap){
+      const response = await this.httpClient.get(`${this.allCards}?type=${filtered.spellOrTrap}&${filtered.filter}=${filtered.value}`).toPromise();
+      return response
+    }
+    const response = await this.httpClient.get(`${this.allCards}?${filtered.filter}=${filtered.value}`).toPromise();
+    return response    
   }
 }

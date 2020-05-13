@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>Card Sets</h2>
+<mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="2014 Mega-Tins">
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" matSort width="100%">
+        <ng-container matColumnDef="set_name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cel *matCellDef="let data"> {{ data.set_name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="set_code">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Set Code </th>
+            <td mat-cel *matCellDef="let data"> {{ data.set_code }}</td>
+        </ng-container>
+        <ng-container matColumnDef="num_of_cards">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Num of cards </th>
+            <td mat-cel *matCellDef="let data"> {{ data.num_of_cards }}</td>
+        </ng-container>
+        <ng-container matColumnDef="tcg_date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> TCG Date </th>
+            <td mat-cel *matCellDef="let data"> {{ data.tcg_date }}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="setColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let data; columns: setColumns" mat-dialog-close="{{ data.set_name }},Viewing set: {{ data.set_name }}" style="cursor: pointer;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[9, 15, 30, 60]" showFirstLastButtons></mat-paginator>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-raised-button mat-dialog-close>Close</button>
+    
+</mat-dialog-actions>

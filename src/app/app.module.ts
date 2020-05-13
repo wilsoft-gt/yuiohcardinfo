@@ -11,6 +11,21 @@ import { MatSelectModule } from '@angular/material/select';
 import { CardInfoComponent } from './card-info/card-info.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatInputModule } from '@angular/material/input'
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRippleModule } from '@angular/material/core';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { SetsComponent } from './sets/sets.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +33,12 @@ import { MatIconModule } from '@angular/material/icon';
     CardListComponent,
     MainComponent,
     CardInfoComponent,
-    NavigationComponent
+    NavigationComponent,
+    SetsComponent,
+    FooterComponent,
+  ],
+  entryComponents: [
+    SetsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +46,20 @@ import { MatIconModule } from '@angular/material/icon';
     HttpClientModule,
     BrowserAnimationsModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatRippleModule,
+    MatChipsModule,
+    MatDividerModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatDialogModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

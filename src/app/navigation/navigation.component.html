@@ -1,1 +1,92 @@
-<p>navigation works!</p>
+<mat-toolbar class="navigation mat-elevation-z5" color="primary">
+  <img class="navigation__icon" src="../../assets/images/icon.png">
+  <div class="navigation__menu">
+
+    <div class="navigation__menu--trigger">
+      Filter
+      <button mat-icon-button #trigger [matMenuTriggerFor]="main">
+        <mat-icon>filter_list</mat-icon>
+      </button>
+    </div>
+
+    <mat-menu #main="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="race">Race</button>
+      <button mat-menu-item [matMenuTriggerFor]="menuTypes">Type</button>
+      <button mat-menu-item [matMenuTriggerFor]="menuLevels">Level</button>
+      <button mat-menu-item [matMenuTriggerFor]="menuAttributes">Attribute</button>
+      <button mat-menu-item [matMenuTriggerFor]="menuLinkValues">Link Value</button>
+      <button mat-menu-item [matMenuTriggerFor]="menuPendulumScale">Pendulum Scale Value</button>
+      <button mat-menu-item role="menuitemcheckbox" aria-checked="false" (click)="openSetDialog()">Card sets</button>
+    </mat-menu>
+
+    <mat-menu #race="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="menuMonsterRaces">
+        Monster Races
+      </button>
+      <button mat-menu-item [matMenuTriggerFor]="menuSpellRaces">
+        Spell Races
+      </button>
+      <button mat-menu-item [matMenuTriggerFor]="menuTrapRaces">
+        Trap Races
+      </button>
+    </mat-menu>
+
+    <mat-menu #menuMonsterRaces="matMenu">
+      <span mat-menu-item *ngFor="let race of monsterRaces" (click)="filterCards('race', race)">
+        <img *ngIf="race != 'Creator-God' && race != 'Cyberse'" src="../../assets/images/races/{{race}}.svg"
+          width="20px"> {{ race }}
+      </span>
+    </mat-menu>
+
+    <mat-menu #menuSpellRaces="matMenu">
+      <span mat-menu-item *ngFor="let race of spellRaces" (click)="filterCards('race', race, 'spell card')">
+        <img src="../../assets/images/trap_spell_types/{{ race | titlecase }}.svg" width="20px"> {{ race }}
+      </span>
+    </mat-menu>
+
+    <mat-menu #menuTrapRaces="matMenu">
+      <span mat-menu-item *ngFor="let race of trapRaces" (click)="filterCards('race', race, 'trap card')">
+        <img src="../../assets/images/trap_spell_types/{{ race | titlecase }}.svg" width="20px"> {{ race }}
+      </span>
+    </mat-menu>
+
+    <mat-menu #menuTypes="matMenu">
+      <span mat-menu-item *ngFor="let type of types" (click)="filterCards('type', type)">
+        <img src="../../assets/images/card_type/{{ type }}.jpg" width="20px"> {{ type }}
+      </span>
+      <button mat-menu-item [matMenuTriggerFor]="menuExtraDeckTypes">Extra Deck Types</button>
+    </mat-menu>
+
+    <mat-menu #menuExtraDeckTypes="matMenu">
+      <span mat-menu-item *ngFor="let type of extraDeckTypes" (click)="filterCards('type', type)">
+        <img src="../../assets/images/card_type/{{ type }}.jpg" width="20px"> {{ type }}
+      </span>
+    </mat-menu>
+
+    <mat-menu #menuLevels="matMenu">
+      <span mat-menu-item *ngFor="let level of levels" (click)="filterCards('level', level)">
+        <img src="{{ levelStar }}" width="15px"> x {{ level }}
+      </span>
+    </mat-menu>
+
+    <mat-menu #menuAttributes="matMenu">
+      <span mat-menu-item *ngFor="let attribute of attributes" (click)="filterCards('attribute', attribute)">
+        <img src="../../assets/images/types/{{attribute | uppercase}}.svg" width="20px"> {{ attribute | titlecase }}
+      </span>
+    </mat-menu>
+
+    <mat-menu #menuLinkValues="matMenu">
+      <span mat-menu-item *ngFor="let value of linkValues" (click)="filterCards('link', value)">
+        <strong>LINK-{{value}}</strong>
+      </span>
+    </mat-menu>
+
+    <mat-menu #menuPendulumScale="matMenu">
+      <span mat-menu-item *ngFor="let scale of pendulumScales" (click)="filterCards('scale', scale)">
+        <img src="../../assets/images/pendulum_left.png" width="20px">
+        {{scale}}
+        <img src="../../assets/images/pendulum_right.png" width="20px">
+      </span>
+    </mat-menu>
+  </div>
+</mat-toolbar>

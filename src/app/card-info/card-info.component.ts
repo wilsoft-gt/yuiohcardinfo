@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Card } from 'src/models/yugioh.models';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Card, Filter } from 'src/models/yugioh.models';
 
 @Component({
   selector: 'app-card-info',
@@ -8,7 +8,8 @@ import { Card } from 'src/models/yugioh.models';
 })
 export class CardInfoComponent implements OnInit {
   @Input() card: Card;
-  backSide: string = '../../../../assets/images/back_high.jpg'
+  @Output() filterEvent = new EventEmitter<Filter>();
+  backSide: string = '../../../../assets/images/back_side.png'
   constructor() { }
 
   ngOnInit(): void {
@@ -17,5 +18,15 @@ export class CardInfoComponent implements OnInit {
   setCardImage(target: HTMLImageElement, link): void {
     target.src = link
   }
-
+  
+  isCardMonster(type: string): boolean {
+    const types = ["Spell Card", "Trap Card"]
+    return types.includes(type)
+  }
+  
+  filterCards(value: string): void {
+    const payload: Filter = {filter: 'set', value: value}
+    this.filterEvent.emit(payload)
+  }
+  
 }

@@ -12,24 +12,14 @@ import {
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
-  styleUrls: ['./card-list.component.scss'],
-  animations:[
-    trigger('loadedImages', [
-      transition('* => *', [
-        query('img', style({ opacity: '0', transform: 'translateY(25px)'}), { optional: true }),
-        query('img', 
-          stagger('50ms', [
-            animate('50ms', style({ opacity: '1', transform: 'translateY(0)'}))
-          ]), { optional: true })
-      ])
-    ])
-  ]
+  styleUrls: ['./card-list.component.scss']
 })
 export class CardListComponent implements OnInit {
-  @Input() cardList: Array<Card>
+  @Input() cardList: Array<Card>;
   @Input() setInfo: SetInfo;
+  @Input() viewing: string;
   @Output() setCardInfoEvent = new EventEmitter<Card>();
-  backSide: string = '../../../../assets/images/back_high.jpg'
+  backSide: string = '../../../../assets/images/back_side.png';
   constructor() { }
 
   ngOnInit(): void {

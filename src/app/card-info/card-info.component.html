@@ -1,10 +1,87 @@
 <section class="card-info">
     <div class="card-info__images">
-        <img #image src="{{ card?.card_images[0]?.image_url || backSide }}" alt="main">
-        <div *ngIf="card?.card_images.length > 1">
-            <span *ngFor="let link of card?.card_images" (click)="setCardImage(image, link?.image_url)">
+        <img #image class="card-info__images--image mat-elevation-z5" src="{{ card?.card_images[0]?.image_url || backSide }}" alt="main">
+        <div *ngIf="card?.card_images.length > 1" class="card-info__images--alternative">
+            <span class="card-info__images--alt" *ngFor="let link of card?.card_images" (click)="setCardImage(image, link?.image_url)">
                 <mat-icon>lens</mat-icon>
             </span>                        
         </div>
-    </div>    
+    </div>
+    <mat-accordion class="card-info__container">
+
+      <mat-expansion-panel expanded="true">
+        <mat-expansion-panel-header  color="primary">
+          Card Info
+        </mat-expansion-panel-header>
+        <div class="expansion-body">
+          <h2>
+            <img src="../../assets/images/card_type/{{ card?.type }}.jpg" width="15px">
+            {{ card?.name }}
+          </h2>
+          <p>
+            <span *ngIf="card?.attribute">
+              <img src="../../assets/images/types/{{card?.attribute}}.svg" width="15px">
+              {{ card?.attribute }}
+            </span>
+            <span  *ngIf="card?.level">
+              | <img src="../../assets/images/star.svg" width="15px"> <mat-icon style="font-size: 15px;">clear</mat-icon> {{ card?.level }}
+            </span>
+          </p>
+          <strong>
+            [
+            {{ card?.race }}
+            /
+            {{ card?.type }}
+            ]
+          </strong>
+          <p> {{ card?.desc }} </p>
+          <p>
+            <span *ngIf="card?.atk || card?.atk >= 0">
+              <strong>ATK</strong>/{{ card?.atk}}  
+            </span>
+            <span  *ngIf="card?.def || card?.def >= 0">
+              <strong>DEF</strong>/{{ card?.def}}
+            </span>
+            <span *ngIf="card?.linkval">
+              <strong>Link</strong>/{{ card?.linkval }}
+            </span>
+            <span *ngIf="card?.scale">
+              <strong>Scale</strong>/{{ card?.scale }}
+            </span>
+          </p>
+        </div>
+      </mat-expansion-panel>
+      
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          Card Sets
+        </mat-expansion-panel-header>
+        
+        <div class="expansion-body">
+          <mat-chip-list>
+            <mat-chip  *ngFor="let set of card?.card_sets" (click)="filterCards(set?.set_name)">
+              {{ set?.set_name}}
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+    
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          Card Price
+        </mat-expansion-panel-header>
+    
+        <div>
+          <span *ngFor="let set of card?.card_prices">
+            Card Market: ${{ set?.cardmarket_price }} <br>
+            TCG Player: ${{ set?.tcgplayer_price }} <br>
+            Ebay: ${{ set?.ebay_price }} <br>
+            Amazon: ${{ set?.amazon_price }} <br>
+            Cool Stuff Inc: ${{ set?.coolstuffinc_price }}
+          </span>
+        </div>
+    
+      </mat-expansion-panel>
+    
+    </mat-accordion>
 </section>

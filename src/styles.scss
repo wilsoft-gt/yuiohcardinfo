@@ -1,4 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "https://fonts.googleapis.com/css?family=Mate|Port+Lligat+Slab";
+$port: 'Port Lligat Slab';
+$mate: 'Mate';
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; }
+h1, h2, h3, h4, h5, h6, button {
+    font-family: $mate;
+}
+
+* {
+    font-family: roboto;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgb(195, 215, 255);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgb(52, 95, 180);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(41, 74, 141);
+  }
+  
+  .mat-dialog-container {
+    background-color: rgba(94, 146, 243, 0.966);
+}
