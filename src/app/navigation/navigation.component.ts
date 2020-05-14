@@ -25,8 +25,6 @@ export class NavigationComponent implements OnInit {
   linkValues: Array<string> = filters.LINKVALUES;
   pendulumScales: Array<string> = filters.PENDULUMSCALE
   
-  levelStar: string = '../../assets/images/star.svg'
-  
   constructor() {}
 
   ngOnInit(): void {}

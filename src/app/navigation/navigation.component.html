@@ -65,7 +65,7 @@
 
     <mat-menu #menuLevels="matMenu">
       <span mat-menu-item *ngFor="let level of levels" (click)="filterCards('level', level)">
-        <img src="{{ levelStar }}" width="15px"> x {{ level }}
+        <img src="./assets/images/star.svg" width="15px"> x {{ level }}
       </span>
     </mat-menu>
 
