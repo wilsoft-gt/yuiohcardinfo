@@ -9,7 +9,6 @@ import { Card, Filter } from 'src/models/yugioh.models';
 export class CardInfoComponent implements OnInit {
   @Input() card: Card;
   @Output() filterEvent = new EventEmitter<Filter>();
-  backSide: string = '../../../../assets/images/back_side.png'
   constructor() { }
 
   ngOnInit(): void {

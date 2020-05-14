@@ -10,7 +10,7 @@
         loading="lazy"
         class="card-list__img-wrapper--image"
         title="{{ card.name }}"
-        src="{{ card.card_images[0].image_url_small || backSide }}"
+        src="{{ card.card_images[0].image_url_small || './assets/images/back_side.png' }}"
         alt="{{ card.name }}"
         (click)="setCardInfo(card)"
       >
