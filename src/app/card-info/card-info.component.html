@@ -15,16 +15,16 @@
         </mat-expansion-panel-header>
         <div class="expansion-body">
           <h2>
-            <img src="../../assets/images/card_type/{{ card?.type }}.jpg" width="15px">
+            <img src="./assets/images/card_type/{{ card?.type }}.jpg" width="15px">
             {{ card?.name }}
           </h2>
           <p>
             <span *ngIf="card?.attribute">
-              <img src="../../assets/images/types/{{card?.attribute}}.svg" width="15px">
+              <img src="./assets/images/types/{{card?.attribute}}.svg" width="15px">
               {{ card?.attribute }}
             </span>
             <span  *ngIf="card?.level">
-              | <img src="../../assets/images/star.svg" width="15px"> <mat-icon style="font-size: 15px;">clear</mat-icon> {{ card?.level }}
+              | <img src="./assets/images/star.svg" width="15px"> <mat-icon style="font-size: 15px;">clear</mat-icon> {{ card?.level }}
             </span>
           </p>
           <strong>

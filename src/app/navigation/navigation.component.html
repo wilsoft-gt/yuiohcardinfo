@@ -1,5 +1,5 @@
 <mat-toolbar class="navigation mat-elevation-z5" color="primary">
-  <img class="navigation__icon" src="../../assets/images/icon.png">
+  <img class="navigation__icon" src="./assets/images/icon.png">
   <div class="navigation__menu">
 
     <div class="navigation__menu--trigger">
@@ -33,33 +33,33 @@
 
     <mat-menu #menuMonsterRaces="matMenu">
       <span mat-menu-item *ngFor="let race of monsterRaces" (click)="filterCards('race', race)">
-        <img *ngIf="race != 'Creator-God' && race != 'Cyberse'" src="../../assets/images/races/{{race}}.svg"
+        <img *ngIf="race != 'Creator-God' && race != 'Cyberse'" src="./assets/images/races/{{race}}.svg"
           width="20px"> {{ race }}
       </span>
     </mat-menu>
 
     <mat-menu #menuSpellRaces="matMenu">
       <span mat-menu-item *ngFor="let race of spellRaces" (click)="filterCards('race', race, 'spell card')">
-        <img src="../../assets/images/trap_spell_types/{{ race | titlecase }}.svg" width="20px"> {{ race }}
+        <img src="./assets/images/trap_spell_types/{{ race | titlecase }}.svg" width="20px"> {{ race }}
       </span>
     </mat-menu>
 
     <mat-menu #menuTrapRaces="matMenu">
       <span mat-menu-item *ngFor="let race of trapRaces" (click)="filterCards('race', race, 'trap card')">
-        <img src="../../assets/images/trap_spell_types/{{ race | titlecase }}.svg" width="20px"> {{ race }}
+        <img src="./assets/images/trap_spell_types/{{ race | titlecase }}.svg" width="20px"> {{ race }}
       </span>
     </mat-menu>
 
     <mat-menu #menuTypes="matMenu">
       <span mat-menu-item *ngFor="let type of types" (click)="filterCards('type', type)">
-        <img src="../../assets/images/card_type/{{ type }}.jpg" width="20px"> {{ type }}
+        <img src="./assets/images/card_type/{{ type }}.jpg" width="20px"> {{ type }}
       </span>
       <button mat-menu-item [matMenuTriggerFor]="menuExtraDeckTypes">Extra Deck Types</button>
     </mat-menu>
 
     <mat-menu #menuExtraDeckTypes="matMenu">
       <span mat-menu-item *ngFor="let type of extraDeckTypes" (click)="filterCards('type', type)">
-        <img src="../../assets/images/card_type/{{ type }}.jpg" width="20px"> {{ type }}
+        <img src="./assets/images/card_type/{{ type }}.jpg" width="20px"> {{ type }}
       </span>
     </mat-menu>
 
@@ -71,7 +71,7 @@
 
     <mat-menu #menuAttributes="matMenu">
       <span mat-menu-item *ngFor="let attribute of attributes" (click)="filterCards('attribute', attribute)">
-        <img src="../../assets/images/types/{{attribute | uppercase}}.svg" width="20px"> {{ attribute | titlecase }}
+        <img src="./assets/images/types/{{attribute | uppercase}}.svg" width="20px"> {{ attribute | titlecase }}
       </span>
     </mat-menu>
 
@@ -83,9 +83,9 @@
 
     <mat-menu #menuPendulumScale="matMenu">
       <span mat-menu-item *ngFor="let scale of pendulumScales" (click)="filterCards('scale', scale)">
-        <img src="../../assets/images/pendulum_left.png" width="20px">
+        <img src="./assets/images/pendulum_left.png" width="20px">
         {{scale}}
-        <img src="../../assets/images/pendulum_right.png" width="20px">
+        <img src="./assets/images/pendulum_right.png" width="20px">
       </span>
     </mat-menu>
   </div>
