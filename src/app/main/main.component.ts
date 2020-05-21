@@ -32,7 +32,6 @@ export class MainComponent implements OnInit {
         width: '75%'
       });
     cardSetsDialogRef.afterClosed().subscribe(result => {
-      console.log(result)
       if (result != "" && result != undefined) {
         const results = result.split(",")
         this.viewing = results[1]
@@ -44,6 +43,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.requestSetData()
+    this.requestAllCards()
   }
   
   async requestSetData(): Promise<any>{

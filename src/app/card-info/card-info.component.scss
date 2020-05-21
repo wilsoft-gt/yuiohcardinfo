@@ -73,4 +73,42 @@
             margin-bottom: 1em;
         }
     }
+    
+    .expansion-body {
+        max-height: 200px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+  }
+
+@media only screen and (max-width: 1024px) and (orientation: portrait) {
+    .card-info {
+        display: flex;
+        flex-direction: column;
+        
+        &__images {
+            width: 75%;
+            margin: 1em 0;
+        }
+        
+        &__container {
+            width: 90%;
+            margin-bottom: 1em;
+        }
+    }
+    
+    .expansion-body {
+        max-height: 175px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    
+}
+
+@media only screen and (max-height: 414px) and (orientation: landscape) {
+    .expansion-body {
+        max-height: 150px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
   }

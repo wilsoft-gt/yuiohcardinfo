@@ -3,6 +3,7 @@
         <app-navigation
             [allCards]="allCards"
             (filterEvent)="requestFiltered($event)"
+            (selectedCardEvent)="setCardInfo($event)"
             (openSetsEvent)="openDialog()"
         ></app-navigation>
     </div>

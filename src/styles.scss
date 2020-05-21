@@ -35,7 +35,49 @@ h1, h2, h3, h4, h5, h6, button {
   ::-webkit-scrollbar-thumb:hover {
     background: rgb(41, 74, 141);
   }
-  
-  .mat-dialog-container {
-    background-color: rgba(94, 146, 243, 0.966);
+
+@media only screen and (max-width: 600px) {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 3.5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(195, 215, 255, 0.479);
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(41, 74, 141);
+  }
+}
+
+@media only screen and (max-height: 415px) and (orientation: landscape) {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 3.5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(195, 215, 255, 0.479);
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(41, 74, 141);
+  }
 }

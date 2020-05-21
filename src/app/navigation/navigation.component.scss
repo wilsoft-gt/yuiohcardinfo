@@ -8,6 +8,7 @@
     border-bottom: 1px solid #266cce;
     color: white;
     &__icon {
+        z-index: 50000;
         height: 3.5em;
         transform: translateY(1em);
     }
@@ -23,32 +24,87 @@
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            font-size: 20px;
+            /* font-size: 20px; */
         }
     }
+    &__autocomplete{
+        width: auto;
+        &--trigger {
+            width: 400px;
+        }
+        
+        &--search {
+            transform: translateY(9px);
+        }
+        
+        &--option {
+            height: auto;
+            margin: 10px 0;
+        }
+    }
+    
+    &__small--trigger {
+        display: none;
+    }
+    
 }
 
-.mat-menu-panel {
-    background: #003c8f !important;
-}
-
-.mat-menu-item {
-    background: rgba(0, 0, 255, 0.349);
-}
-
-.mat-menu-item:hover {
-    background: rgba(0, 0, 255, 0.507);
+.option__image {
+    vertical-align: middle;
+    margin-right: 15px;
+    width: 40px;
 }
 
 @media only screen and (max-width: 600px) {
+    .navigation {
+        display: flex;
+        height: auto;
+        position: absolute;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        
+        &__small {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            
+            &--trigger {
+                display: block;
+            }
+            &--menu {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        }
+        &__icon {
+            width: 200px;
+            height: auto;
+            transform: translateY(12px);
+        }
+        &__menu {
+            display: none;
+            &--trigger {
+                width: 100%;
+            }
+        }
+        &__autocomplete {
+            display: none;
+            &--trigger {
+                width: 100%;
+            }
+        }
+        
+    } 
+}
+
+@media only screen and (max-height: 414px) and (orientation: landscape) {
     .navigation__icon {
-        height: 2em;
-        transform: translateY(0);
-    }
-    
-    .navigation__menu--trigger {
-        width: auto;
-        margin-right: 0.5em;
-        font-size: 16px;
+        height: 3em;
+        transform: translateY(12px);
     }
   }
