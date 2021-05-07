@@ -52,7 +52,7 @@ export class NavigationComponent implements OnInit {
   }
   
   get isInputMoreThanTree(): boolean {
-    return (this.formInput.value > 4)
+    return (this.formInput.value > 2)
   }
   
   filterCards(filter: string, type: string, card?: string): void {
@@ -68,7 +68,7 @@ export class NavigationComponent implements OnInit {
   
   filterSearch(value: string): Array<Card> {
     return this.allCards.filter(card => {
-      return card.name.toLowerCase().includes(value)
+      return card.name.toLowerCase().includes(value.toLowerCase())
     })
   }
   
